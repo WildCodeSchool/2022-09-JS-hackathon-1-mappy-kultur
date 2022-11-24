@@ -2,7 +2,7 @@ function Header() {
   return (
     <header className="header">
       <div className="logosearchbar">
-        <p>HELLO</p>
+        <h1 className="titleheader">MAPPY KULTUR</h1>
       </div>
     </header>
   );
