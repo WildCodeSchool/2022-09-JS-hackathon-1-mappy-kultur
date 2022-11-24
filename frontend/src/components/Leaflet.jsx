@@ -20,7 +20,7 @@ export default function Leaflet() {
       zoom={6}
       scrollWheelZoom
     >
-      {pointer.length > 0 && <ChangeView center={pointer} zoom={9} />}
+      {pointer.length > 0 && <ChangeView center={pointer} />}
 
       <TileLayer
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -39,16 +39,15 @@ export default function Leaflet() {
 function MyComponent({ setpointer }) {
   useMapEvents({
     click: (e) => {
-      console.warn(e.latlng);
       setpointer([e.latlng.lat, e.latlng.lng]);
     },
   });
 }
 
 function ChangeView(props) {
-  const { center, zoom } = props;
+  const { center } = props;
   const map = useMap();
-  map.setView(center, zoom);
+  map.setView(center, map.getZoom());
   return null;
 }
 ChangeView.propTypes = {
