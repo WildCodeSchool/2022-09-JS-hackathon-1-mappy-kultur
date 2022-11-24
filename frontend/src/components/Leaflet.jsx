@@ -1,5 +1,19 @@
-import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import {
+  MapContainer,
+  TileLayer,
+  Marker,
+  Popup,
+  useMapEvents,
+} from "react-leaflet";
 import "leaflet/dist/leaflet.css";
+
+function MyComponent() {
+  useMapEvents({
+    click: (e) => {
+      console.warn(e.latlng);
+    },
+  });
+}
 
 export default function Leaflet() {
   return (
@@ -18,6 +32,7 @@ export default function Leaflet() {
           A pretty CSS3 popup. <br /> Easily customizable.
         </Popup>
       </Marker>
+      <MyComponent />
     </MapContainer>
   );
 }
