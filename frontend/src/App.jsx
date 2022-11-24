@@ -1,11 +1,10 @@
-import Home from "./pages/Home";
-
 import "./App.css";
+import Leaflet from "./components/Leaflet";
 
 function App() {
   return (
     <div className="App">
-      <Home />
+      <Leaflet />
     </div>
   );
 }
