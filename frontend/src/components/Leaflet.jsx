@@ -1,14 +1,8 @@
-import {
-  MapContainer,
-  TileLayer,
-  Marker,
-  Popup,
-  useMapEvents,
-  useMap,
-} from "react-leaflet";
+import { MapContainer, TileLayer, useMapEvents, useMap } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import { useEffect, useState } from "react";
 import PropTypes, { number } from "prop-types";
+import ComponentMarker from "./ComponentMarker";
 
 import getData, { getdetails } from "../data/api";
 
@@ -28,7 +22,6 @@ export default function Leaflet() {
     }
   }, [pointer]);
 
-  console.warn(data);
   return (
     <MapContainer
       className="leafletcontener"
@@ -44,14 +37,7 @@ export default function Leaflet() {
       />
 
       {data.map((marker) => (
-        <Marker
-          key={marker.xid}
-          position={[marker.point.lat, marker.point.lon]}
-        >
-          <Popup>
-            <h2>{marker.name}</h2>
-          </Popup>
-        </Marker>
+        <ComponentMarker key={marker.xid} marker={marker} />
       ))}
       <MyComponent setpointer={setpointer} />
     </MapContainer>
@@ -73,6 +59,7 @@ function ChangeView(props) {
   map.setView(center, map.getZoom());
   return null;
 }
+
 ChangeView.propTypes = {
   center: PropTypes.arrayOf(number).isRequired,
   zoom: PropTypes.number.isRequired,
