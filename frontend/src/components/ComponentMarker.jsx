@@ -29,7 +29,7 @@ export default function ComponentMarker({ marker }) {
           {details.preview && (
             <img
               src={details.preview.source}
-              style={{ maxWidth: "40vw" }}
+              style={{ maxWidth: "100%" }}
               alt=""
             />
           )}
