@@ -57,6 +57,7 @@ function ChangeView(props) {
   const { center } = props;
   const map = useMap();
   map.setView(center, map.getZoom());
+  map.setZoom(9);
   return null;
 }
 
