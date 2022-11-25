@@ -10,7 +10,7 @@ import "leaflet/dist/leaflet.css";
 import { useState } from "react";
 import PropTypes, { number } from "prop-types";
 
-import getData from "../data/api";
+import getData, { getdetails } from "../data/api";
 
 export default function Leaflet() {
   const [pointer, setpointer] = useState([]);
@@ -43,6 +43,7 @@ function MyComponent({ setpointer }) {
     click: (e) => {
       setpointer([e.latlng.lat, e.latlng.lng]);
       getData(e.latlng.lat, e.latlng.lng);
+      getdetails("N3254769225");
     },
   });
 }
