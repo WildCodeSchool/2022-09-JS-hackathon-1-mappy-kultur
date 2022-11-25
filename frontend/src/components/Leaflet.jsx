@@ -43,11 +43,16 @@ export default function Leaflet() {
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
 
-      <Marker position={[46.227638, 2.213749]}>
-        <Popup>
-          A pretty CSS3 popup. <br /> Easily customizable.
-        </Popup>
-      </Marker>
+      {data.map((marker) => (
+        <Marker
+          key={marker.xid}
+          position={[marker.point.lat, marker.point.lon]}
+        >
+          <Popup>
+            A pretty CSS3 popup. <br /> Easily customizable.
+          </Popup>
+        </Marker>
+      ))}
       <MyComponent setpointer={setpointer} />
     </MapContainer>
   );
