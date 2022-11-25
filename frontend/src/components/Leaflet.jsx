@@ -49,7 +49,7 @@ export default function Leaflet() {
           position={[marker.point.lat, marker.point.lon]}
         >
           <Popup>
-            A pretty CSS3 popup. <br /> Easily customizable.
+            <h2>{marker.name}</h2>
           </Popup>
         </Marker>
       ))}
